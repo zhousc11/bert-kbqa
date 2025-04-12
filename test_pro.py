@@ -158,7 +158,7 @@ def semantic_matching(model,tokenizer,question,attribute_list,answer_list,max_le
 
 def select_database(sql):
     # connect database
-    connect = pymysql.connect(user="root",password="123456",host="127.0.0.1",port=3306,db="kb_qa",charset="utf8")
+    connect = pymysql.connect(user="root",password="passwordplaceholder",host="127.0.0.1",port=3306,db="kb_qa",charset="utf8")
     cursor = connect.cursor()  # 创建操作游标
     try:
         # 执行SQL语句

@@ -14,11 +14,11 @@ from sqlalchemy import create_engine
 def create_db():
     connect = pymysql.connect(  # 连接数据库服务器-*-*-
         user="root",
-        password="123456",
+        password="passwordplaceholder",
         host="127.0.0.1",
         port=3306,
         db="KB_QA",
-        charset="utf8"
+        charset="utf8mb4"
     )
     conn = connect.cursor()  # 创建操作游标
     # 你需要一个游标 来实现对数据库的操作相当于一条线索
@@ -46,16 +46,16 @@ def create_db():
 def loaddata():
     # 初始化数据库连接，使用pymysql模块
     db_info = {'user': 'root',
-               'password': '123456',
+               'password': 'passwordplaceholder',
                'host': '127.0.0.1',
                'port': 3306,
                'database': 'KB_QA'
                }
 
     engine = create_engine( # 导入模块中的create_engine，需要利用它来进行连接数据库
-        'mysql+pymysql://%(user)s:%(password)s@%(host)s:%(port)d/%(database)s?charset=utf8' % db_info, encoding='utf-8')
+        'mysql+pymysql://%(user)s:%(password)s@%(host)s:%(port)d/%(database)s?charset=utf8mb4' % db_info)
     # ("mysql+pymysql://【此处填用户名】:【此处填密码】@【此处填host】:【此处填port】/【此处填数据库的名称】?charset=utf8")
-    # 直接使用这种形式也可以engine = create_engine('mysql+pymysql://root:123456@localhost:3306/test')
+    # 直接使用这种形式也可以engine = create_engine('mysql+pymysql://root:passwordplaceholder@localhost:3306/test')
     # 填写链接信息
 
     # 读取本地CSV文件
@@ -74,11 +74,11 @@ def loaddata():
 def upload_data(sql):
     connect = pymysql.connect(  # 连接数据库服务器
         user="root",
-        password="123456",
+        password="passwordplaceholder",
         host="127.0.0.1",
         port=3306,
-        db="kb_qa",
-        charset="utf8"
+        db="KB_QA",
+        charset="utf8mb4"
     )
     cursor = connect.cursor()  # 创建操作游标
     try:
@@ -98,7 +98,7 @@ def upload_data(sql):
 if __name__ == '__main__':
     # create_db()
     # loaddata()
-    sql = "select * from nlpccqa where entity = '高等数学'"
+    sql = "select * from nlpccQA where entity = '高等数学'"
 
     ret = upload_data(sql)
     print(list(ret))

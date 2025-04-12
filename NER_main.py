@@ -323,9 +323,9 @@ def evaluate_and_save_model(args,model,eval_dataset,epoch,global_step,best_f1):
     avg_recall = recall_b * weight_b + recall_i * weight_i
     avg_f1 = f1_b * weight_b + f1_i * weight_i
 
-    all_avg_precision = ret['micro avg']['precision']
-    all_avg_recall = ret['micro avg']['recall']
-    all_avg_f1 = ret['micro avg']['f1-score']
+    all_avg_precision = ret['macro avg']['precision']
+    all_avg_recall = ret['macro avg']['recall']
+    all_avg_f1 = ret['macro avg']['f1-score']
 
     logger.info("Evaluating EPOCH = [%d/%d] global_step = %d", epoch+1,args.num_train_epochs,global_step)
     logger.info("B-LOC precision = %f recall = %f  f1 = %f support = %d", precision_b, recall_b, f1_b,

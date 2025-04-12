@@ -1,0 +1,10 @@
+__pychache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info
+*.egg
+*.whl
+.DS_Store
+output/
+input/config/bert-base-chinese-model.bin
